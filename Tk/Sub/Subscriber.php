@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace Tk\Sub\Controller;
 
 use Tk\Request;
 use Tk\Form;
@@ -10,7 +10,7 @@ use Tk\Form;
  * @link http://www.tropotek.com/
  * @license Copyright 2015 Michael Mifsud
  */
-class Subscriber extends Iface
+class Subscriber extends \Bs\Controller\Iface
 {
 
     /**
