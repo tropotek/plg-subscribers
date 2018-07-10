@@ -1,0 +1,35 @@
+{
+    "name": "ttek-plg/subscribers",
+    "type": "ttek-plugin",
+    "description": "A plugin to manage newsletter subscription emails",
+    "keywords":  [
+        "tropotek",
+        "plugin",
+        "tk2",
+        "subscribers"
+    ],
+    "homepage": "http://www.tropotek.com/",
+    "time": "2018-07-17",
+    "access": "admin",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors":  [
+         {
+            "name": "Michael Mifsud",
+            "homepage": "http://www.tropotek.com/"
+        }
+    ],
+    "autoload":  {
+        "psr-0":  {
+            "Tk\\Sub\\": ""
+        }
+    },
+    "extra":  {
+        "branch-alias":  {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "require":  {
+        "ttek/tk-installers": "~2.0"
+    }
+}
