@@ -36,12 +36,14 @@ class MenuHandler implements Subscriber
      */
     public function onTemplateLoad(\Dom\Event\DomEvent $event)
     {
+
+
         // Get the page template
         $plugin = Plugin::getInstance();
         $template = $event->getTemplate();
         $var = $plugin->getData()->get('plugin.menu.admin.var');
         $rendererClass = trim($plugin->getData()->get('plugin.menu.admin.renderer'), '\\');
-        if (!in_array($rendererClass, class_parents($event->get('callingClass')))) {
+        if ($rendererClass != $event->get('callingClass') && !in_array($rendererClass, class_parents($event->get('callingClass')))) {
             return;
         }
         if (!$template->hasVar($var)) {

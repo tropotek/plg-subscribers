@@ -43,6 +43,8 @@ class Plugin extends \Tk\Plugin\Iface
 
         /** @var Dispatcher $dispatcher */
         $dispatcher = \App\Config::getInstance()->getEventDispatcher();
+
+
         $dispatcher->addSubscriber(new \Tk\Sub\Listener\MenuHandler());
 
     }

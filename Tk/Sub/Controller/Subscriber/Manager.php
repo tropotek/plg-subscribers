@@ -54,7 +54,7 @@ class Manager extends \Bs\Controller\AdminIface
         $this->table->addAction(new \Tk\Table\Action\Csv($this->getConfig()->getDb()));
         $this->table->addAction(new \Tk\Table\Action\Delete());
 
-        $list = \App\Db\SubscriberMap::create()->findFiltered($this->table->getFilterValues(), $this->table->getTool('a.name'));
+        $list = \Tk\Sub\Db\SubscriberMap::create()->findFiltered($this->table->getFilterValues(), $this->table->getTool('a.name'));
         $this->table->setList($list);
 
     }
