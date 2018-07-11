@@ -1,5 +1,5 @@
 <?php
-namespace App\Db;
+namespace Tk\Sub\Db;
 
 use App\Controller\Subscriber;
 use Tk\Db\Tool;

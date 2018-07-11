@@ -1,5 +1,5 @@
 <?php
-namespace App\Db;
+namespace Tk\Sub\Db;
 
 use Tk\Db\Map\Model;
 

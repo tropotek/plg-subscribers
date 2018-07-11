@@ -45,7 +45,7 @@ class Subscriber extends \Bs\Controller\Iface
     public function doSubmit(Request $request)
     {
 
-        $subscriber = new \App\Db\Subscriber();
+        $subscriber = new \Tk\Sub\Db\Subscriber();
         $subscriber->name = $request->get('name');
         $subscriber->email = $request->get('email');
 

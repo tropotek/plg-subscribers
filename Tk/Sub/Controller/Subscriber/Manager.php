@@ -1,5 +1,5 @@
 <?php
-namespace Tk\Sub\Controller\Admin\Subscriber;
+namespace Tk\Sub\Controller\Subscriber;
 
 use Tk\Request;
 use Dom\Template;

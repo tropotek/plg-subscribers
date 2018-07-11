@@ -21,7 +21,7 @@ class Edit extends \Bs\Controller\AdminIface
     protected $form = null;
 
     /**
-     * @var \App\Db\Subscriber
+     * @var \Tk\Sub\Db\Subscriber
      */
     private $subscriber = null;
 
@@ -45,14 +45,14 @@ class Edit extends \Bs\Controller\AdminIface
     public function doDefault(Request $request)
     {
         
-        $this->subscriber = new \App\Db\Subscriber();
+        $this->subscriber = new \Tk\Sub\Db\Subscriber();
         if ($request->get('subscriberId')) {
-            $this->subscriber = \App\Db\Subscriber::getMapper()->find($request->get('subscriberId'));
+            $this->subscriber = \Tk\Sub\Db\Subscriber::getMapper()->find($request->get('subscriberId'));
         }
 
         //$this->form = new Form('subscriber-edit');
-        $this->form = \App\Config::getInstance()->createForm('subscriber-edit');
-        $this->form->setRenderer(\App\Config::getInstance()->createFormRenderer($this->form));
+        $this->form = $this->getConfig()->createForm('subscriber-edit');
+        $this->form->setRenderer($this->getConfig()->createFormRenderer($this->form));
         
         $this->form->addField(new Field\Input('name'))->setRequired(true);
         $this->form->addField(new Field\Input('email'))->setRequired(true);
@@ -64,7 +64,7 @@ class Edit extends \Bs\Controller\AdminIface
         $this->form->addField(new Event\Submit('save', array($this, 'doSubmit')));
         $this->form->addField(new Event\Link('cancel', $this->getConfig()->getBackUrl()));
 
-        $this->form->load(\App\Db\SubscriberMap::create()->unmapForm($this->subscriber));
+        $this->form->load(\Tk\Sub\Db\SubscriberMap::create()->unmapForm($this->subscriber));
         
         $this->form->execute();
 
@@ -79,7 +79,7 @@ class Edit extends \Bs\Controller\AdminIface
     public function doSubmit($form, $event)
     {
         // Load the object with data from the form using a helper object
-        \App\Db\SubscriberMap::create()->mapForm($form->getValues(), $this->subscriber);
+        \Tk\Sub\Db\SubscriberMap::create()->mapForm($form->getValues(), $this->subscriber);
 
         // Password validation needs to be here
         $form->addFieldErrors($this->subscriber->validate());

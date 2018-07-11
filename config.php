@@ -7,7 +7,7 @@ if (!$routes) return;
 /** @var \Composer\Autoload\ClassLoader $composer */
 $composer = $config->getComposer();
 if ($composer)
-    $composer->add('\\Tk\\Sub\\', dirname(__FILE__));
+    $composer->add('Tk\\Sub\\', dirname(__FILE__));
 
 
 
