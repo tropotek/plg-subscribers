@@ -121,8 +121,8 @@ class Plugin extends \Tk\Plugin\Iface
 //        $data->clear();
 //        $data->save();
 
-//        if ($db->hasTable('subscriber'))
-//            $this->getConfig()->getDb()->query('DROP TABLE subscriber');
+        if ($db->hasTable('subscriber'))
+            $this->getConfig()->getDb()->query('DROP TABLE subscriber');
 
     }
 
