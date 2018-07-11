@@ -1,4 +1,4 @@
-# Tk2 Events Plugin
+# Tk2 Subscribers Plugin
 
 __Project:__ [ttek-plg/subscribers](http://packagist.org/packages/ttek-plg/subscribers)  
 __Published:__ 01 Jul 2018

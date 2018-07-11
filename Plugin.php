@@ -1,5 +1,5 @@
 <?php
-namespace Tk\Ev;
+namespace Tk\Sub;
 
 use Tk\Event\Dispatcher;
 
@@ -43,7 +43,7 @@ class Plugin extends \Tk\Plugin\Iface
 
         /** @var Dispatcher $dispatcher */
         $dispatcher = \App\Config::getInstance()->getEventDispatcher();
-        $dispatcher->addSubscriber(new \Tk\Ev\Listener\MenuHandler());
+        $dispatcher->addSubscriber(new \Tk\Sub\Listener\MenuHandler());
 
     }
 
@@ -66,9 +66,9 @@ class Plugin extends \Tk\Plugin\Iface
 
         // Init Settings
         $data = $this->getData();
-//        $data->set('plugin.menu.renderer', '/Bs/Page/AdminPage');
-//        $data->set('plugin.menu.var', 'system-menu');
-//        $data->set('plugin.menu.content', '<li><a href="/admin/mailLogManager.html"><i class="fa fa-envelope-o fa-fw"></i> Email Log</a></li>');
+        $data->set('plugin.menu.admin.renderer', '\Bs\Page');
+        $data->set('plugin.menu.admin.var', 'app-menu');
+        $data->set('plugin.menu.admin.content', '<li><a href="/admin/subscriberManager.html"><i class="fa fa-newspaper-o fa-fw"></i> Subscribers</a></li>');
         $data->save();
     }
 
@@ -109,7 +109,7 @@ class Plugin extends \Tk\Plugin\Iface
 
         // Remove migration track
         $sql = sprintf('DELETE FROM %s WHERE %s LIKE %s', $db->quoteParameter(\Tk\Util\SqlMigrate::$DB_TABLE), $db->quoteParameter('path'),
-            $db->quote('/subscribers/' . $this->getName().'/%'));
+            $db->quote('/plugin/' . $this->getName().'/%'));
         $db->query($sql);
 
         // Clear the data table of all plugin data
@@ -121,7 +121,8 @@ class Plugin extends \Tk\Plugin\Iface
 //        $data->clear();
 //        $data->save();
 
-        $this->getConfig()->getDb()->query('DROP TABLE mail_log');
+//        if ($db->hasTable('subscriber'))
+//            $this->getConfig()->getDb()->query('DROP TABLE subscriber');
 
     }
 

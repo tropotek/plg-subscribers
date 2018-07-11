@@ -11,20 +11,16 @@ if ($composer)
 
 
 
-
-
 // Default Home catchall
 $params = array();
 $routes->add('subscribers-form', new \Tk\Routing\Route('/subscribe', 'Tk\Sub\Controller\Subscriber::doDefault', $params));
-//$routes->add('free-presentations', new \Tk\Routing\Route('/events', 'Tk\Ev\Controller\FreePresentations::doDefault', array()));
 
 $params = array('role' => 'admin');
-$routes->add('event-settings', new \Tk\Routing\Route('/eventSettings.html', 'Tk\Ev\Controller\SystemSettings::doDefault', $params));
+$routes->add('subscribers-settings', new \Tk\Routing\Route('/subscribersSettings.html', 'Tk\Sub\Controller\Settings::doDefault', $params));
 
-$routes->add('admin-event-manager', new \Tk\Routing\Route('/admin/eventManager.html', 'Tk\Ev\Controller\MailLog\Manager::doDefault', $params));
-$routes->add('admin-event-view', new \Tk\Routing\Route('/admin/eventView.html', 'Tk\Ev\Controller\MailLog\View::doDefault', $params));
+$routes->add('subscribers-admin-manager', new \Tk\Routing\Route('/admin/subscriberManager.html', 'Tk\Sub\Controller\Subscriber\Manager::doDefault', $params));
+$routes->add('subscribers-admin-edit', new \Tk\Routing\Route('/admin/subscriberEdit.html', 'Tk\Sub\Controller\Subscriber\Edit::doDefault', $params));
 
-$routes->add('admin-event-view', new \Tk\Routing\Route('/admin/eventView.html', 'Tk\Ev\Controller\MailLog\View::doDefault', $params));
 
 
 
