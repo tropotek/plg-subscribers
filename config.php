@@ -11,15 +11,11 @@ if ($composer)
 
 
 
-// Default Home catchall
-$params = array();
-$routes->add('subscribers-form', new \Tk\Routing\Route('/subscribe', 'Tk\Sub\Controller\Subscriber::doDefault', $params));
+$routes->add('subscribers-form', new \Tk\Routing\Route('/subscribe', 'Tk\Sub\Controller\Subscriber::doDefault'));
 
-$params = array('role' => 'admin');
-$routes->add('subscribers-settings', new \Tk\Routing\Route('/subscribersSettings.html', 'Tk\Sub\Controller\Settings::doDefault', $params));
-
-$routes->add('subscribers-admin-manager', new \Tk\Routing\Route('/admin/subscriberManager.html', 'Tk\Sub\Controller\Subscriber\Manager::doDefault', $params));
-$routes->add('subscribers-admin-edit', new \Tk\Routing\Route('/admin/subscriberEdit.html', 'Tk\Sub\Controller\Subscriber\Edit::doDefault', $params));
+$routes->add('subscribers-admin-settings', new \Tk\Routing\Route('/admin/subscribersSettings.html', 'Tk\Sub\Controller\Settings::doDefault'));
+$routes->add('subscribers-admin-manager', new \Tk\Routing\Route('/admin/subscriberManager.html', 'Tk\Sub\Controller\Subscriber\Manager::doDefault'));
+$routes->add('subscribers-admin-edit', new \Tk\Routing\Route('/admin/subscriberEdit.html', 'Tk\Sub\Controller\Subscriber\Edit::doDefault'));
 
 
 
