@@ -27,10 +27,6 @@ class Subscriber extends \Bs\Controller\Iface
     {
         $this->setPageTitle('Signup For Updates');
 
-        if ($request->getReferer()->getHost() != \Tk\Uri::create()->getHost()) {
-            throw new \Tk\Exception('Unknown server error.');
-        }
-
         if ($request->has('signup')) {
             $this->doSubmit($request);
         }
@@ -48,6 +44,11 @@ class Subscriber extends \Bs\Controller\Iface
         $subscriber = new \Tk\Sub\Db\Subscriber();
         $subscriber->name = $request->get('name');
         $subscriber->email = $request->get('email');
+
+        if ($request->getReferer()->getHost() != \Tk\Uri::create()->getHost()) {
+            \Tk\Alert::addError('Invalid message response.');
+            \Tk\Uri::create()->reset()->redirect();
+        }
 
         $valid = $subscriber->validate();
         if (count($valid)) {
