@@ -64,8 +64,8 @@ class Plugin extends \Tk\Plugin\Iface
 
         // Init Settings
         $data = $this->getData();
-        $data->set('plugin.menu.admin.renderer', '\Bs\Page');
-        $data->set('plugin.menu.admin.var', 'app-menu');
+        $data->set('plugin.menu.admin.renderer', '\App\Ui\Menu\AdminSiteNav');
+        $data->set('plugin.menu.admin.var', 'nav');
         $data->set('plugin.menu.admin.content', '<li><a href="/admin/subscriberManager.html"><i class="fa fa-newspaper-o fa-fw"></i> Subscribers</a></li>');
         $data->save();
     }
