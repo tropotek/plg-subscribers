@@ -25,7 +25,8 @@ class MenuHandler implements Subscriber
     public function onControllerInit(Event $event)
     {
         /** @var \App\Controller\Iface $controller */
-        $this->controller = $event->get('controller');
+
+        $this->controller = \Tk\Event\Event::findControllerObject($event);
     }
 
     /**
